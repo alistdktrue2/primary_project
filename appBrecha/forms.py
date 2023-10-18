@@ -1,10 +1,8 @@
 from django import forms
-from phonenumber_field.formfields import PhoneNumberField
 from django.contrib.auth.forms import UserCreationForm
 from .models import Contact
 
 class ContactForm(forms.ModelForm):
-    phone = PhoneNumberField(region="PE")
     password_confirmation = forms.CharField(max_length=128, widget=forms.PasswordInput())
 
     class Meta:
