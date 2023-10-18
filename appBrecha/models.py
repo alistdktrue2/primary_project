@@ -1,5 +1,4 @@
 from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import User
 from django.utils import timezone
 
@@ -11,7 +10,7 @@ class Contact(models.Model):
 
     full_name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone = PhoneNumberField(blank=True)
+    phone = models.CharField(max_length=128)
     password = models.CharField(max_length=128)
     password_confirmation = models.CharField(max_length=128)
     plan = models.CharField(max_length=10, choices=PLAN_CHOICES)
